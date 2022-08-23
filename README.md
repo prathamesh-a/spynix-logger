@@ -1,4 +1,5 @@
 # Spynix Keylogger
+
 [![Lincence](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/prathamesh-a/spynix-logger?include_prereleases)
 <img src="https://img.shields.io/badge/Java-8-red.svg">
@@ -30,6 +31,24 @@ Enter the asked information in the interface such as email addresses and timeout
 - ✅ = Ready to use
 - ⏳ = In progress
 - ❌ = Not started, but on roadmap
+
+## Screenshots
+1. Main Screen:
+
+![image](https://user-images.githubusercontent.com/89336149/186242355-93144cf9-b366-4be0-8991-4bbe8fab8c29.png)
+
+2. Setup Information:
+
+![image](https://user-images.githubusercontent.com/89336149/186242424-ec748a21-b6b5-479d-813a-87cba66d6e0a.png)
+
+3. Information confirmation:
+
+![image](https://user-images.githubusercontent.com/89336149/186242575-c802e9a3-0a1f-4b80-bfea-49e21e561f5d.png)
+
+4. Java Native Hook Enabled:
+
+![image](https://user-images.githubusercontent.com/89336149/186242741-b508b21e-8077-4580-adea-1984400430e3.png)
+
 
 ## License
 
