@@ -8,11 +8,9 @@ import java.util.Locale;
 
 public class Spynix {
 
-    private final Menu menu;
-
     public Spynix() {
         checkOS();
-        this.menu = new Menu();
+        new Menu();
     }
 
     private void checkOS() {
@@ -27,11 +25,3 @@ public class Spynix {
         new Spynix();
     }
 }
-
-
-//        String path = System.getenv("APPDATA") + "\\Spynix" + "\\logs\\" + dateFormat.format(new Date()) + ".txt";
-//        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
-//            bw.write("Hello world!");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }

