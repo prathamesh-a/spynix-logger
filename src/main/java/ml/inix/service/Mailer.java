@@ -1,47 +1,27 @@
 package ml.inix.service;
 
-import ml.inix.util.Color;
-import ml.inix.util.Log;
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.SimpleEmail;
+import ml.inix.Config;
 
-public class Mailer {
+import java.util.Timer;
+import java.util.TimerTask;
 
-    private String SMTP;
-    private String email_from;
-    private String email_password;
-    private String port;
-    private boolean SSL;
-    private boolean TLS;
-    private boolean debug;
+public class Mailer implements Runnable{
 
-    public Mailer(String smtp, String email_from, String email_password, String port,
-                  boolean ssl, boolean tls, boolean debug) {
+    private Thread thread;
 
-        this.SMTP = smtp;
-        this.email_from = email_from;
-        this.email_password = email_password;
-        this.port = port;
-        this.SSL = ssl;
-        this.TLS = tls;
-        this.debug = debug;
+    public Mailer() {
+        this.thread = new Thread(this, "Mail Service");
+        thread.start();
     }
 
-    public void sendSimpleMail(String email_to, String subject, String message) {
-        SimpleEmail email = new SimpleEmail();
-        try {
-            email.setDebug(debug);
-            email.setHostName(SMTP);
-            email.addTo(email_to);
-            email.setFrom(email_from);
-            email.setAuthentication(email_from, email_password);
-            email.setSubject(subject);
-            email.setMsg(message);
-            email.setSSL(SSL);
-            email.setTLS(TLS);
-            email.send();
-        } catch (EmailException e) {
-            Log.out(Color.RED + e.getMessage());
-        }
+    @Override
+    public void run() {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                //TODO
+            }
+        }, Config.TIMEOUT*1000L, Config.TIMEOUT*1000L);
     }
 }

@@ -8,7 +8,7 @@ import java.util.Locale;
 
 public class Spynix {
 
-    private Menu menu;
+    private final Menu menu;
 
     public Spynix() {
         checkOS();

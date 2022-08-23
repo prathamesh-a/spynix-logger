@@ -1,7 +1,9 @@
 package ml.inix.menu;
 
 import ml.inix.Config;
+import ml.inix.service.Mailer;
 import ml.inix.util.Color;
+import ml.inix.util.FileManager;
 import ml.inix.util.Log;
 
 import java.util.Scanner;
@@ -77,6 +79,8 @@ public class Menu {
         while (confirmText.trim().isEmpty());
 
         if (confirmText.trim().equalsIgnoreCase("y")) {
+            FileManager.createReqFiles();
+            new Mailer();
             //TODO
         }
         else if (confirmText.trim().equalsIgnoreCase("n")) {
