@@ -1,5 +1,7 @@
 package ml.inix.service;
 
+import ml.inix.util.Color;
+import ml.inix.util.Log;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
@@ -39,7 +41,7 @@ public class Mailer {
             email.setTLS(TLS);
             email.send();
         } catch (EmailException e) {
-            System.out.println(e.getMessage());
+            Log.out(Color.RED + e.getMessage());
         }
     }
 }
